@@ -16,3 +16,14 @@ d3.json(url),then(function(data){
 function markerSize(magnitude){
     return magnitude*1000;
 }
+
+//Create a function that colours the marker based on its depth on the map
+//colour scale will go from shallow(green) to to deep(red)
+function markerColour(depth){
+    if (depth<20) return "#11FE09"; //green
+    else if (depth<40) return "#BDFE09"; //green-yellow
+    else if (depth<60) return "#FEF609"; //yellow
+    else if (depth<80) return "#FEBD09"; //yellow orange
+    else return "#FE0F0F"; //red
+}
+
