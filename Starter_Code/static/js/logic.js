@@ -27,3 +27,18 @@ function markerColour(depth){
     else return "#FE0F0F"; //red
 }
 
+//Create a function that we run for each feature, and then give each feature a popup for that describes
+//the location and magnitude of the earthquake. The data features are already stored in the createFeatures function
+//which will be fleshed out in more detail here.
+function createFeatures(eqData){
+    function popupFeatures{
+    layer.bindPopup(`<h3>Location:${feature.properties.place}</h3><hr><p>Date:
+    ${new Date(feature.properties.time)}</p><p>Magnitude:
+    ${feautre.properties.mg}</p><p>Depth:
+    ${feature.geometry.coordinates[2]}</p>`);
+    }
+    //Create the layer that houses all the features we are making
+    var eq = L.geoJSON(eqData, {
+        popupFeatures: popupFeatures,
+    })
+}
